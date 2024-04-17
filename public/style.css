@@ -1,0 +1,107 @@
+@import url(head.css);
+
+:root {
+--rood: #FF0000;
+--wit: #FFFFFF;
+--zwart: #000000;
+--grijs: RGB: 150/150/150;
+}
+
+h1{
+    margin: auto;
+    text-align: center;
+    color: red;
+    height: 70px;
+    font-family: "Martian Mono", monospace;
+    font-size: 50px;
+}
+h2, a{
+    margin-left: 0.8em;
+    margin-top: 0.4em;
+    margin-right: 0.8em;
+    font-weight: normal;
+    font-family: 'Times New Roman', Times, serif;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    /* margin: .3em; */
+}
+section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-left: 5em;
+    gap: 1.3456789em;
+    box-shadow: 10px 5px 5px #000;
+    & article{
+    display: inline-block;
+    width:200px;
+    }
+}
+
+article {
+    box-shadow: 3px 3px 10px rgb(0 0 0 / 0.5);
+}
+
+.top {
+    height: 200px;
+    width: 200px;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+}
+
+.bottom {
+    height: 100px;
+    width: 200px;
+    background-color: var(--wit);
+    overflow: auto;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
+
+button {
+    float: right;
+    margin-top: 0.5em;
+    border: 0px;
+    background-color: transparent;
+}
+
+button:hover {
+    transform: scale(1.25);
+}
+
+svg{
+    height: 35px;
+    width: 35px;
+    margin: 0.27em;
+    float: right;
+}
+
+svg:hover{
+    height: 32px;
+    width:32px;
+    /* transform: scale(1.05); */
+}
