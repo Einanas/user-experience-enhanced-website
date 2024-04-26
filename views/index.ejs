@@ -4,49 +4,50 @@
 
 <section>
   <!-- elke item (cd, acitivity, book) -->
-  <% items.forEach(item=> { %>
+  <% items.forEach(items=> { %>
     <article>
       <div class="top">
         <!-- gelinkte afbeeldingen -->
         <picture>
-          <source srcset="https://fdnd-agency.directus.app/assets/<%= item.afbeelding %>?format=avif" type="image/avif">
-          <source srcset="https://fdnd-agency.directus.app/assets/<%= item.afbeelding %>?format=webp" type="image/webp">
-          <img src="https://fdnd-agency.directus.app/assets/<%= item.afbeelding %>" alt="leesboek" height="200" width="200">
+          <source srcset="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>?format=avif" type="image/avif">
+          <source srcset="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>?format=webp" type="image/webp">
+          <img src="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>" alt="leesboek" height="200" width="200">
         </picture>
       </div>
       <div class="bottom">
         <h2>
-          <%= item.title %>
+          <!-- <%= items.title %> -->
 
           <!-- title van elke boek -->
-          <!-- <a href="/boeken/<%=item.id%>">
-            <%= item.title %>
-          </a> -->
+          <a href="/detail/<%=items.id%>">
+            <%= items.title %>
+          </a>
         </h2>
-
-        <% if (!savedItems.includes(item.id)) { %>
-        <!-- Form voor opslaan knopje met svg -->
-        <form method="post" action="/boeken/<%=item.id%>">
-          <button>
-            <svg class="plus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
-
-              <defs>
-              </defs>
-              <g transform="translate(1.4065934065934016 1.4065934065934016) scale(2)">
-                <path d="M86.5 41.5h-38v-38c0-1.933-1.567-3.5-3.5-3.5s-3.5 1.567-3.5 3.5v38h-38c-1.933 0-3.5 1.567-3.5 3.5s1.567 3.5 3.5 3.5h38v38c0 1.933 1.567 3.5 3.5 3.5s3.5-1.567 3.5-3.5v-38h38c1.933 0 3.5-1.567 3.5-3.5s-1.567-3.5-3.5-3.5z" fill="rgb(29,29,27)" />
-            </g>
-              </svg>
-          </button>
-        </form>
-        <% } else { %>
-        <svg class="svg-icon" style="vertical-align: middle;fill: currentColor;overflow: hidden;" 
-        viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M420.693333 768a42.666667 42.666667 
-        0 0 1-31.146666-13.653333l-207.36-220.586667a42.666667 42.666667 0 1 1 62.293333-58.453333l175.786667 187.306666 
-        358.826666-392.533333a42.666667 42.666667 0 1 1 63.146667 57.173333l-389.973333 426.666667a42.666667 42.666667 0 0 
-        1-31.146667 14.08z" fill="#231F20" />
-        </svg>
-        <% } %>
-
+        <div id="loader" class="loader"></div>
+        <div id="content" class="hidden">
+          <% if (!savedItems.includes(items.id)) { %>
+            <!-- Form voor opslaan knopje met svg -->
+            <form method="post" action="/detail/<%=items.id%>">
+              <button>
+                <svg class="plus" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="256" height="256" viewBox="0 0 256 256" xml:space="preserve">
+    
+                  <defs>
+                  </defs>
+                  <g transform="translate(1.4065934065934016 1.4065934065934016) scale(2)">
+                    <path d="M86.5 41.5h-38v-38c0-1.933-1.567-3.5-3.5-3.5s-3.5 1.567-3.5 3.5v38h-38c-1.933 0-3.5 1.567-3.5 3.5s1.567 3.5 3.5 3.5h38v38c0 1.933 1.567 3.5 3.5 3.5s3.5-1.567 3.5-3.5v-38h38c1.933 0 3.5-1.567 3.5-3.5s-1.567-3.5-3.5-3.5z" fill="rgb(29,29,27)" />
+                  </g>
+                  </svg>
+              </button>
+            </form>
+            <% } else { %>
+            <svg class="svg-icon" style="vertical-align: middle;fill: currentColor;overflow: hidden;" 
+            viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M420.693333 768a42.666667 42.666667 
+            0 0 1-31.146666-13.653333l-207.36-220.586667a42.666667 42.666667 0 1 1 62.293333-58.453333l175.786667 187.306666 
+            358.826666-392.533333a42.666667 42.666667 0 1 1 63.146667 57.173333l-389.973333 426.666667a42.666667 42.666667 0 0 
+            1-31.146667 14.08z" fill="#231F20" />
+            </svg>
+            <% } %>
+        </div>
       </div>
     </article>
     <% }) %>

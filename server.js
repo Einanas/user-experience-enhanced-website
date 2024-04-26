@@ -32,6 +32,8 @@ const apiItem = (apiUrl + 'oba_item')
 // Array of object (ik weet niet specifiek welke) for POST om boeken op te slaan
 let savedItems = [2, 3, 4, 5, 6, 20, 26, 31, 32];
 
+// let info= [All];
+
 // Home pagina
 app.get('/', function(request, response) {
     console.log(savedItems)
@@ -52,17 +54,18 @@ app.get('/boeken', function(request, response) {
     });
 })
 
-// Boeken ID (Pagina waar alle boeken zijn opgeslagen (zie het als favorieten lijst))
-app.get('/boeken/:id', function(request, response) {
+// Boeken ID (Info van een leesboek (zie het als favorieten lijst))
+app.get('/detail/:id', function(request, response) {
     fetchJson('https://fdnd-agency.directus.app/items/oba_item' + '?filter={"id":' + request.params.id + '}').then((itemsDataUitDeAPI) => {
+        // console.log(itemsDataUitDeAPI)
         response.render('detail', {
-            
+            items: itemsDataUitDeAPI.data[0] // data meegeven zodat je geen "cannot GET..." krijgt
         })
     });
 })
 
 // Maak een POST route voor de index
-app.post('/boeken/:id', function(request, response) {
+app.post('/detail/:id', function(request, response) {
     // Voeg het nieuwe bericht toe aan de messages array
     savedItems.push(Number(request.params.id))
   
