@@ -8,20 +8,26 @@
     <article>
       <div class="top">
         <!-- gelinkte afbeeldingen -->
-        <picture>
+        <div class="skeleton">
+          <picture>
           <source srcset="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>?format=avif" type="image/avif">
           <source srcset="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>?format=webp" type="image/webp">
-          <img src="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>" alt="leesboek" height="200" width="200">
+          <img src="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>" alt="leesboek" height="200" width="200" class="skeleton">
         </picture>
+        </div>
       </div>
       <div class="bottom">
         <h2>
           <!-- <%= items.title %> -->
 
           <!-- title van elke boek -->
-          <a href="/detail/<%=items.id%>">
+          <a href="/detail/<%=items.id%>" class="skeleton-text">
             <%= items.title %>
           </a>
+          <div class="skeleton-text"></div>
+          <div class="skeleton-text"></div>
+          <div class="skeleton-text"></div>
+          <div class="skeleton-text"></div>
         </h2>
         <div id="loader" class="loader"></div>
         <div id="content" class="hidden">
@@ -53,9 +59,9 @@
     <% }) %>
 </section>
 
-<!-- input:checked + svg
-
-assets link bij item.afbeelding laten gebruiken -->
+<!-- 
+  tip1= input:checked + svg 
+  tip2= assets link bij item.afbeelding laten gebruiken -->
 
 
 
@@ -64,3 +70,4 @@ assets link bij item.afbeelding laten gebruiken -->
  -->
 
 <%- include('./partials/foot') %>
+<!-- lazy state https://www.youtube.com/watch?v=ZVug65gW-fc-->

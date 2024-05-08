@@ -1,24 +1,41 @@
+<%- include ('./partials/info') %>
   <h1>Inhoud</h1>
   <section>
-    <div class="top">
-      <picture>
-        <source srcset="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>?format=avif" type="image/avif">
-        <source srcset="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>?format=webp" type="image/webp">
-        <img src="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>" alt="leesboek" height="200" width="200">
-      </picture>
-    </div>
-    <!-- <div class="bottom">
-        <h2><% items.title %></h2>
-    </div> -->
+    <picture>
+      <source srcset="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>?format=avif" type="image/avif">
+      <source srcset="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>?format=webp" type="image/webp">
+      <img src="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>" alt="leesboek" height="200" width="200">
+    </picture>
   </section>
-
-  <p> <% items.title %> </p>
+  
+  <!-- <% items.forEach(items=> { %>
+  <p> <%= items.title %> </p>
+  }) %> -->
 
   <section class="dropdown content">
-    <h3>Samenvatting</h3>
-    <p class="content"><% items.description %></p>
-    <h3>Taal</h3>
-    <p class="content"><% items.language %></p>
-    <h3>Auteur</h3>
-    <p class="content"><% items.auteur %></p>
+    <ul>
+      <li>
+        <h3>Samenvatting</h3>
+        <p class="content"> <%= item.description %>
+        Lorem ipsum dolor sit, amet consectetur 
+        adipisicing elit. Quis a hic maiores nostrum
+        dicta sit nesciunt dolore ab, quisquam id quia 
+        et voluptatem deleniti possimus commodi optio 
+        iusto. Voluptatem, optio.</p>
+      </li>
+      <!--<li>
+        <h3>Genre</h3>
+        <p><%= items.genre %></p>
+      </li>
+      <li>
+        <h3>Taal</h3>
+        <p class="content"><%= items.language %></p>
+      </li> 
+      <li>
+        <h3>Soort</h3>
+        <p><%= items.itemtype %></p>
+      </li>-->
+    </ul>    
+    
   </section>
+  <%- include('./partials/foot') %>

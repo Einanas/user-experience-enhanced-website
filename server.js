@@ -30,8 +30,8 @@ const apiUrl = 'https://fdnd-agency.directus.app/items/oba_item'
 const apiItem = (apiUrl + 'oba_item')
 
 // Array of object (ik weet niet specifiek welke) for POST om boeken op te slaan
-let savedItems = [2, 3, 4, 5, 6, 20, 26, 31, 32];
-
+// let savedItems = [2, 3, 4, 5, 6, 20, 26, 31, 32];
+let savedItems = [];
 // let info= [All];
 
 // Home pagina
