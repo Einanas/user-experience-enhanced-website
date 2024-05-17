@@ -1,10 +1,15 @@
 @import url(head.css);
 
+* {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
 :root {
 --rood: #FF0000;
 --wit: #FFFFFF;
 --zwart: #000000;
---grijs: RGB: 150/150/150;
+--grijs: rgb 150/150/150;
 }
 
 /* Lazy loading state */
@@ -159,3 +164,4 @@ svg:hover{
 /* .hidden {
     display: none;
 } */
+

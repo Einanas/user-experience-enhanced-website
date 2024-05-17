@@ -1,5 +1,5 @@
 // Importeer het npm pakket express uit de node_modules map
-import express, { application, json } from 'express'
+import express, { application, json, request } from 'express'
 
 // Importeer de zelfgemaakte functie fetchJson uit de ./helpers map
 import fetchJson from './helpers/fetch-json.js'
@@ -73,6 +73,14 @@ app.post('/detail/:id', function(request, response) {
     response.redirect(303, '/')
   })
   
+
+// app.post('/detail:id', function(request, response) , {
+//     const id = request.params.id
+
+//     console.log(request)
+// })
+
+
 // Stel het poortnummer in waar express op moet gaan luisteren
 app.set('port', process.env.PORT || 8000)
 

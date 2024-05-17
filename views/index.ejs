@@ -18,16 +18,10 @@
       </div>
       <div class="bottom">
         <h2>
-          <!-- <%= items.title %> -->
-
           <!-- title van elke boek -->
-          <a href="/detail/<%=items.id%>" class="skeleton-text">
+          <a href="/detail/<%=items.id%>">
             <%= items.title %>
           </a>
-          <div class="skeleton-text"></div>
-          <div class="skeleton-text"></div>
-          <div class="skeleton-text"></div>
-          <div class="skeleton-text"></div>
         </h2>
         <div id="loader" class="loader"></div>
         <div id="content" class="hidden">
@@ -62,12 +56,6 @@
 <!-- 
   tip1= input:checked + svg 
   tip2= assets link bij item.afbeelding laten gebruiken -->
-
-
-
-<!--      https://www.youtube.com/watch?v=sf_ac-dYh3w      
-          https://www.youtube.com/watch?v=D7B8BQ5TFTE
- -->
 
 <%- include('./partials/foot') %>
 <!-- lazy state https://www.youtube.com/watch?v=ZVug65gW-fc-->

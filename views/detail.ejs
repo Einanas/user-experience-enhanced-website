@@ -1,38 +1,159 @@
-<%- include ('./partials/info') %>
-  <h1>Inhoud</h1>
-  <section>
-    <picture>
-      <source srcset="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>?format=avif" type="image/avif">
-      <source srcset="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>?format=webp" type="image/webp">
-      <img src="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>" alt="leesboek" height="200" width="200">
-    </picture>
-  </section>
-  
+<!-- <%- include ('./partials/info') %> -->
+<!-- Detail component -->
 
-  <section class="dropdown content">
-    <ul>
-      <li>
-        <h3>Samenvatting</h3>
-        <p class="content"> <%- items.description %>
-        Lorem ipsum dolor sit, amet consectetur 
-        adipisicing elit. Quis a hic maiores nostrum
-        dicta sit nesciunt dolore ab, quisquam id quia 
-        et voluptatem deleniti possimus commodi optio 
-        iusto. Voluptatem, optio.</p>
-      </li>
-      <li>
-        <h3>Genre</h3>
+<script>
+  function toggleSummary() {
+    const summary = document.getElementById("summary");
+    const button = document.querySelector(".toggle-summary");
+    if (summary.style.display === "none") {
+      summary.style.display = "block";
+      button.textContent = "Toon minder";
+    } else {
+      summary.style.display = "none";
+      button.textContent = "Toon meer";
+    }
+  }
+
+  // Initially hide the summary
+  document.addEventListener("DOMContentLoaded", () => {
+    document.getElementById("summary").style.display = "none";
+  });
+</script>
+
+<body>
+  
+    <!-- <img src="logo.jpg" alt="Rode Oba Logo" height="200" width="200"> -->
+  <h1 class="logo">Oba</h1>
+  <!-- <a href="/index.ejs"><button> Home </button></a> -->
+  <article class="container">
+    <section class="image-section">
+      <img
+        src="https://fdnd-agency.directus.app/assets/<%= items.afbeelding %>"
+        alt="<%= items.title %> cover"
+        class="book-image"
+      />
+      <h1 class="title"><%= items.title %></h1>
+    </section>
+    <section class="details-section">
+      <div class="detail">
+        <h2>Auteur</h2>
+        <p><%= items.auteur %></p>
+      </div>
+      <div class="detail">
+        <h2>Genre</h2>
         <p><%= items.genre %></p>
-      </li>
-      <li>
-        <h3>Taal</h3>
-        <p class="content"><%= items.language %></p>
-      </li> 
-      <li>
-        <h3>Soort</h3>
-        <p><%= items.itemtype %></p>
-      </li>
-    </ul>    
-    
-  </section>
-  <%- include('./partials/foot') %>
+      </div>
+      <div class="detail">
+        <h2>Samenvatting</h2>
+        <p id="summary"><%- items.description %></p>
+        <button class="toggle-summary" onclick="toggleSummary()">
+          Toon meer
+        </button>
+      </div>
+    </section>
+  </article>
+</body>
+
+<style>
+  /* Reset and base styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #E4E9F7;
+    color: #333;
+    padding: 20px;
+  }
+
+  .logo {
+    color: #FF0000;
+    font-size: 70px;
+    font-weight: 900;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .image-section {
+    text-align: center;
+  }
+
+  .book-image {
+    width: 250px;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .book-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .title {
+    font-size: 25px;
+    margin-top: 10px;
+  }
+
+  .details-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .detail h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #FF0000;
+  }
+
+  .detail p {
+    font-size: 1rem;
+    color: #555;
+  }
+
+  .toggle-summary {
+    background: #dcdcdc;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    align-self: center;
+  }
+
+  .toggle-summary:hover {
+    background: #FF0000;
+    color: #333;
+    font-weight: 700;
+    box-shadow: 2px 2px 2px gray;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      grid-template-columns: 1fr;
+    }
+
+    .image-section,
+    .details-section {
+      grid-column: span 1;
+    }
+  }
+</style>
+
+<%- include('./partials/foot') %>
